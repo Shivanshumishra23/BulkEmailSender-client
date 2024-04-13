@@ -1,0 +1,39 @@
+.rich-text-editor-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.toolbar > * {
+  margin-right: 5px;
+}
+
+.editor {
+  border: 1px solid #ccc;
+  min-height: 200px;
+  padding: 10px;
+}
+
+.preview {
+  border: 1px solid #ccc;
+  min-height: 200px;
+  padding: 10px;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.link-added {
+  background-color: #e6f7ff; /* Light blue background for added link */
+}

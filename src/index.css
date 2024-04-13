@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+.listMenu .active {
+  display: block !important;
+  background: #1976d2 !important;
+  color: rgb(254, 254, 254) !important;
+
+  .icon {
+    color: white;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset gray;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  outline: 2px solid gray;
+}
+
+.Mui-focused {
+  color: gray !important;
+}
+
+.MuiFilledInput-hiddenLabel {
+  color: gray !important;
+}
+
+.MuiFilledInput-input {
+  outline: none !important;
+  /* border: 1px solid gray !important; */
+  /* outline: 1px solid gray !important; */
+}
+
+/* Decrease line height for all text in the Quill editor */
+.ql-editor {
+  line-height: 1.5;
+  height: 220px;
+  border-radius: 5px;
+  /* end */
+  /* box-sizing: border-box; */
+  line-height: 15px !important;
+  /* outline: none; */
+  /* overflow-y: auto; */
+
+  /* padding: 12px 15px; */
+  /* tab-size: 4; */
+  /* -moz-tab-size: 4; */
+  /* text-align: left; */
+  /* white-space: pre-wrap; */
+  /* word-wrap: break-word; */
+}
+.editor > * {
+  line-height: 0px !important;
+}
+.editor-content {
+  line-height: 100px !important;
+}
+
+/* Add more selectors for other elements as needed */

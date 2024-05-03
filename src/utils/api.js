@@ -1,6 +1,5 @@
-export const api = "http://localhost:5000/api";
-// export const api = "http://localhost:4000/api";
-// export const api = "http://3.6.115.159:4000/api";
+export const api = "https://bulk-email-sender-server-poeh.vercel.app";
+// export const api = "http://localhost:5000/api";
 
 export const isAuthenticated = () => {
   if (typeof window == "undefined") {

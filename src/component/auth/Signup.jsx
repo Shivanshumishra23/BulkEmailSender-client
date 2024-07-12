@@ -1,8 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { useState } from "react";
 import Microsoft from "../../assets/Microsoft.png";
-import { Typography, Box, TextField, Button, Grid, IconButton, Tooltip } from "@mui/material";
-import { ContentCopy } from "@mui/icons-material";
+import { Typography, Box, TextField, Button, Grid, Link } from "@mui/material";
 import { emailRIcon } from "../../assets";
 import { useAuth } from "../../context/Auth";
 import ForgotModel from "../../models/ForgotModel";
@@ -17,8 +16,8 @@ const Login = () => {
   // QUERY
   const mutation = useMutation((data) => loginUser(data));
   const [user, setUser] = useState({
-    email: "himmatsir23@gmail.com",
-    password: "12345",
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -27,17 +26,12 @@ const Login = () => {
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
 
-  const handleCopy = (text) => {
-    navigator.clipboard.writeText(text);
-    apiSuccess(`${text} copied to clipboard`);
-  };
-
   // Login
   const handleLogin = async () => {
     try {
       const { email, password } = user;
       if (!email || !password) {
-        customError("Credential is required");
+        customError("crendtial is required");
         return;
       }
 
@@ -58,7 +52,7 @@ const Login = () => {
     if (mutation.isSuccess) {
       apiSuccess("Login success");
       const { data } = mutation.data;
-      // save to local storage
+      // save to localstorgae
       setTimeout(() => {
         localStorage.setItem("userAuth", JSON.stringify(data));
         navigate("/dashboard/home");
@@ -89,11 +83,11 @@ const Login = () => {
               fontSize={50}
               fontWeight={800}
             >
-              MailBlast 
+              DigiDart
             </Typography>
 
             <TextField
-              label="Email"
+              label="email"
               variant="outlined"
               fullWidth
               mb={9}
@@ -113,16 +107,16 @@ const Login = () => {
               sx={{ "& .MuiInputBase-input": { padding: "20px" } }}
             />
 
-            <Typography
-              textAlign="left"
-              color="primary"
-              sx={{
-                cursor: "pointer",
-              }}
-              onClick={() => handleClickOpen()}
-            >
-              Forgot Password?
-            </Typography>
+           <TextField
+              label="Password"
+              type="password"
+              name="password"
+              variant="outlined"
+              value={user.password}
+              onChange={handleChange}
+              fullWidth
+              sx={{ "& .MuiInputBase-input": { padding: "20px" } }}
+            />
             <Button
               variant="contained"
               color="primary"
@@ -154,67 +148,39 @@ const Login = () => {
                 style={{ width: "20px", marginRight: "5px" }}
               />
               <Typography variant="body1" color="textPrimary">
-                <a href="">Sign In</a>
+                Having account <Link to="/" color="textPrimary">Login</Link>
               </Typography>
             </Typography>
           </Box>
         </Grid>
 
-        {/* Demo Credentials and Blue Screen */}
-        <Grid item md={6} sx={{ height: { xs: 0, md: "100%" } }}>
+        {/* Blue Screen */}
+        <Grid
+          item
+          md={6}
+          sx={{
+            height: {
+              xs: 0,
+              md: "100%",
+            },
+          }}
+        >
           <Box
             display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
             bgcolor="primary.main"
-            height="100%"
-            px={4}
+            height="inherit"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ fontSize: "50px" }}
           >
-            <Box
+            <img
+              src={emailRIcon}
+              alt="emailR-icon-alt"
               display="flex"
-              flexDirection="column"
-              rowGap={2}
-              mb={4}
-              p={2}
-              border={1}
-              borderRadius={2}
-              borderColor="white"
-              bgcolor="white"
-              color="primary.main"
-            >
-              <Typography variant="h6" textAlign="center">
-               <p> Here is Demo Login Detail  <br/>you can use it</p>
-              </Typography>
-              <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="body1">Email: himmatsir23@gmail.com</Typography>
-                <Tooltip title="Copy Email">
-                  <IconButton onClick={() => handleCopy("himmatsir23@gmail.com")}>
-                    <ContentCopy />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-              <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="body1">Password:12345</Typography>
-                <Tooltip title="Copy Password">
-                  <IconButton onClick={() => handleCopy("12345")}>
-                    <ContentCopy />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              // justifyContent="center"
-              // alignItems="center"
-              // /height="inherit"
-            >
-              <img
-                src={emailRIcon}
-                alt="emailR-icon-alt"
-                style={{ width: "80%", height: "80%", objectFit: "cover" }}
-              />
-            </Box>
+              justifyContent="center"
+              alignItems="center"
+              style={{ width: "20%", height: "20%", objectFit: "cover" }}
+            />
           </Box>
         </Grid>
       </Grid>

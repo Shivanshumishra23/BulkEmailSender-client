@@ -1,3 +1,4 @@
+
 import React, { memo, useEffect } from "react";
 import { useState } from "react";
 import Microsoft from "../../assets/Microsoft.png";
@@ -72,12 +73,13 @@ const Login = () => {
     <>
       <ForgotModel title="Enter your Email - ID to reset your password" />
       <Grid container height="100vh">
-        <Grid item sm={12} md={6} p={3} height="100%" alignItems="center">
+        <Grid item xs={12} md={6} p={3} height="100%" display="flex" alignItems="center" justifyContent="center">
           <Box
             display="flex"
             flexDirection="column"
+            width={{ xs: "100%", sm: "80%", md: "60%" }}
             mx="auto"
-            px={12}
+            px={{ xs: 2, md: 12 }}
             rowGap={4}
           >
             <Typography
@@ -86,7 +88,7 @@ const Login = () => {
               gutterBottom
               mt={6}
               mb={6}
-              fontSize={50}
+              fontSize={{ xs: 30, md: 50 }}
               fontWeight={800}
             >
               MailBlast 
@@ -161,13 +163,14 @@ const Login = () => {
         </Grid>
 
         {/* Demo Credentials and Blue Screen */}
-        <Grid item md={6} sx={{ height: { xs: 0, md: "100%" } }}>
+        <Grid item xs={12} md={6} sx={{ display: { xs: "none", md: "flex" }, height: "100vh" }}>
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
             bgcolor="primary.main"
+            width="100%"
             height="100%"
             px={4}
           >
@@ -184,7 +187,7 @@ const Login = () => {
               color="primary.main"
             >
               <Typography variant="h6" textAlign="center">
-               <p> Here is Demo Login Detail  <br/>you can use it</p>
+                <p> Here is Demo Login Detail  <br/>you can use it</p>
               </Typography>
               <Box display="flex" justifyContent="space-between" alignItems="center">
                 <Typography variant="body1">Email: himmatsir23@gmail.com</Typography>
@@ -205,14 +208,14 @@ const Login = () => {
             </Box>
             <Box
               display="flex"
-              // justifyContent="center"
-              // alignItems="center"
-              // /height="inherit"
+              width="100%"
+              justifyContent="center"
+              alignItems="center"
             >
               <img
                 src={emailRIcon}
                 alt="emailR-icon-alt"
-                style={{ width: "80%", height: "80%", objectFit: "cover" }}
+                style={{ width: "80px", height:"80px", objectFit: "cover" }}
               />
             </Box>
           </Box>
